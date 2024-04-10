@@ -43,6 +43,13 @@ app.use(session({
 app.use(express.static('public'));
 app.use(express.json())
 app.use(expressLayout)
+
+//Global Variable
+app.use((req,res,next) => {
+    res.locals.session = req.session
+    next()
+})
+
 app.set('views',path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs');
 

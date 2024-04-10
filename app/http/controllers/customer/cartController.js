@@ -22,7 +22,7 @@ function cartController(params) {    //factory function
             }
 
             let cart = req.session.cart
-            if (cart.items[req.body._id]) {
+            if (!cart.items[req.body._id]) {
                 cart.items[req.body._id] = {
                     item: req.body,
                     qty: 1
