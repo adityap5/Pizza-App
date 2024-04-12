@@ -2,6 +2,7 @@
 const homeController =require('../app/http/controllers/homeController')
 const authController = require('../app/http/controllers/authController')
 const cartController = require('../app/http/controllers/customer/cartController')
+const orderController = require('../app/http/controllers/customer/orderController')
 const guest = require('../app/http/middleware/guest')
 function initroutes(app) {
   
@@ -15,6 +16,7 @@ function initroutes(app) {
     
     app.get('/cart', cartController().index);
     app.post('/update-cart', cartController().update)
+    app.post('/orders', orderController().store)
 }
 
 module.exports = initroutes;
